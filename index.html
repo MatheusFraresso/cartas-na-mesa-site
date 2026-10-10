@@ -51,8 +51,8 @@
     <table>
       <thead><tr><th>Dado</th><th>Para quê</th><th>Onde fica</th></tr></thead>
       <tbody>
-        <tr><td><strong>E-mail</strong> (opcional, para criar conta)</td><td>Identificar sua conta, enviar o código de verificação e permitir entrar em outros aparelhos.</td><td>Nossos servidores</td></tr>
-        <tr><td><strong>Telefone</strong> (opcional)</td><td>Informação de contato associada à conta. Não é usado para login.</td><td>Nossos servidores</td></tr>
+        <tr><td><strong>E-mail</strong> (opcional, para criar conta)</td><td>Identificar sua conta, enviar o código de verificação e permitir entrar em outros aparelhos.</td><td>Nossos servidores (criptografado)</td></tr>
+        <tr><td><strong>Telefone</strong> (opcional)</td><td>Informação de contato associada à conta. Não é usado para login.</td><td>Nossos servidores (criptografado)</td></tr>
         <tr><td><strong>Respostas</strong> que você escreve às cartas</td><td>Salvar suas respostas e, se você consentir, compará-las com as de outras pessoas para sugerir conexões.</td><td>No aparelho; e nos servidores, se você tiver conta</td></tr>
         <tr><td><strong>Perguntas personalizadas, favoritos, bloqueios e progresso de jogos</strong></td><td>Fazer o app funcionar como você configurou.</td><td>Apenas no seu aparelho</td></tr>
         <tr><td><strong>Token de notificações push</strong></td><td>Avisar você sobre conexões encontradas.</td><td>Nossos servidores</td></tr>
@@ -71,7 +71,7 @@
       <li>Só comparamos as suas respostas com as de outras pessoas se você <strong>der consentimento expresso</strong> e tiver <strong>verificado o seu e-mail</strong>. Sem isso, as suas respostas não participam de nenhuma comparação.</li>
       <li>Você pode <strong>retirar o consentimento a qualquer momento</strong> nas configurações do app.</li>
       <li>A comparação é feita por um processo automatizado que transforma o texto das respostas em representações numéricas (embeddings) e, opcionalmente, usa um modelo de linguagem para avaliar se dois pares de respostas tratam do mesmo assunto.</li>
-      <li>Quando há uma possível conexão, você recebe uma notificação com o tema em comum. <strong>Seus dados de contato e suas respostas só são revelados à outra pessoa se os dois lados optarem por compartilhar.</strong></li>
+      <li>Quando há uma possível conexão, você recebe uma notificação com o tema em comum. <strong>Seu e-mail, telefone e suas respostas nunca são compartilhados com outro jogador sem o consentimento de ambos: só são revelados se você e a outra pessoa escolherem compartilhar.</strong> Se apenas um lado aceitar, nada é revelado, e você decide por conexão.</li>
     </ul>
 
     <h2>4. Compartilhamento com terceiros</h2>
@@ -100,7 +100,8 @@
     <p>Mantemos os dados da conta enquanto ela existir. Códigos de verificação expiram rapidamente. Quando você pedir a exclusão, apagamos a sua conta, respostas e conexões associadas, salvo o que formos obrigados a manter por lei. Os dados armazenados apenas no aparelho podem ser removidos desinstalando o app ou limpando seus dados.</p>
 
     <h2>8. Segurança</h2>
-    <p>Usamos conexão criptografada (HTTPS), guardamos o token de sessão de forma criptografada no aparelho, armazenamos no servidor apenas um hash do token, verificamos o e-mail com código, limitamos tentativas e requisições e restringimos o acesso aos dados. Nenhum sistema é totalmente seguro, mas trabalhamos para proteger suas informações.</p>
+    <p><strong>Seu e-mail e seu telefone são armazenados criptografados</strong> (AES-256-GCM), com a chave de criptografia guardada separadamente do banco de dados. Assim, se alguém obtiver apenas uma cópia do banco de dados, por exemplo em um ataque, esses dados não ficam legíveis. Para buscas e para evitar contas duplicadas usamos apenas um código de verificação derivado (hash com chave), do qual o e-mail ou o telefone não podem ser recuperados.</p>
+    <p>Também usamos conexão criptografada (HTTPS), guardamos o token de sessão de forma criptografada no aparelho, armazenamos no servidor apenas um hash do token, verificamos o e-mail com código, limitamos tentativas e requisições e restringimos o acesso aos dados. Nenhum sistema é totalmente seguro e não podemos garantir proteção absoluta, mas trabalhamos para proteger suas informações e, em caso de incidente que afete seus dados, avisaremos você e a ANPD conforme a LGPD.</p>
 
     <h2>9. Seus direitos</h2>
     <p>Pela LGPD (Lei nº 13.709/2018) você pode solicitar: confirmação e acesso aos dados, correção, anonimização, bloqueio ou eliminação, portabilidade, informação sobre com quem compartilhamos, e a revogação do consentimento. Escreva para <a href="mailto:matheusmfraresso@gmail.com">matheusmfraresso@gmail.com</a> a partir do e-mail da conta; responderemos em prazo razoável. Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).</p>
@@ -134,8 +135,8 @@
     <table>
       <thead><tr><th>Data</th><th>Purpose</th><th>Where it is kept</th></tr></thead>
       <tbody>
-        <tr><td><strong>Email</strong> (optional, to create an account)</td><td>Identify your account, send the verification code and let you sign in on other devices.</td><td>Our servers</td></tr>
-        <tr><td><strong>Phone number</strong> (optional)</td><td>Contact information tied to the account. Not used for sign-in.</td><td>Our servers</td></tr>
+        <tr><td><strong>Email</strong> (optional, to create an account)</td><td>Identify your account, send the verification code and let you sign in on other devices.</td><td>Our servers (encrypted)</td></tr>
+        <tr><td><strong>Phone number</strong> (optional)</td><td>Contact information tied to the account. Not used for sign-in.</td><td>Our servers (encrypted)</td></tr>
         <tr><td><strong>Answers</strong> you write to cards</td><td>Save your answers and, if you consent, compare them with other people's to suggest connections.</td><td>On your device; and on our servers if you have an account</td></tr>
         <tr><td><strong>Custom questions, favorites, blocked cards and game progress</strong></td><td>Make the app work the way you set it up.</td><td>Only on your device</td></tr>
         <tr><td><strong>Push notification token</strong></td><td>Notify you about connections found.</td><td>Our servers</td></tr>
@@ -154,7 +155,7 @@
       <li>We compare your answers with other people's only if you <strong>give explicit consent</strong> and have <strong>verified your email</strong>. Otherwise your answers take no part in any comparison.</li>
       <li>You can <strong>withdraw consent at any time</strong> in the app settings.</li>
       <li>The comparison is automated: answer text is converted into numeric representations (embeddings) and, optionally, a language model assesses whether two answers address the same subject.</li>
-      <li>When a possible connection is found you get a notification with the shared theme. <strong>Your contact details and answers are revealed to the other person only if both sides opt in to share.</strong></li>
+      <li>When a possible connection is found you get a notification with the shared theme. <strong>Your email, phone number and answers are never shared with another player without the consent of both: they are revealed only if you and the other person each choose to share.</strong> If only one side agrees, nothing is revealed, and you decide per connection.</li>
     </ul>
 
     <h2>4. Sharing with third parties</h2>
@@ -183,7 +184,8 @@
     <p>We keep account data while the account exists. Verification codes expire quickly. When you ask for deletion, we erase your account, answers and related connections, except what we must keep by law. Data stored only on your device can be removed by uninstalling the app or clearing its data.</p>
 
     <h2>8. Security</h2>
-    <p>We use encrypted connections (HTTPS), store the session token encrypted on the device, keep only a hash of it on the server, verify email with a code, rate-limit attempts and requests, and restrict access to data. No system is completely secure, but we work to protect your information.</p>
+    <p><strong>Your email address and phone number are stored encrypted</strong> (AES-256-GCM), with the encryption key kept separate from the database. So if someone obtains only a copy of the database, for example in an attack, this data is not readable. For lookups and to prevent duplicate accounts we use only a derived keyed hash, from which the email or phone cannot be recovered.</p>
+    <p>We also use encrypted connections (HTTPS), store the session token encrypted on the device, keep only a hash of it on the server, verify email with a code, rate-limit attempts and requests, and restrict access to data. No system is completely secure and we cannot guarantee absolute protection, but we work to protect your information and, if an incident affects your data, we will notify you and the ANPD as required by the LGPD.</p>
 
     <h2>9. Your rights</h2>
     <p>Under the LGPD (Law No. 13,709/2018) you may request: confirmation and access to your data, correction, anonymization, blocking or deletion, portability, information about who we share data with, and withdrawal of consent. Email <a href="mailto:matheusmfraresso@gmail.com">matheusmfraresso@gmail.com</a> from the account's email address; we will reply within a reasonable time. You may also complain to Brazil's National Data Protection Authority (ANPD).</p>
